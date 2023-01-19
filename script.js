@@ -10,7 +10,7 @@ const specCharVal = ('!@#$%^&*()-_=+{}<>?/');
 const numCharVal = ('0123456789');
 let generateBtn = document.querySelector("#generate");
 
-//create random password
+//create random password and check length
 function generatePassword() {
   charSet = ('');
   let passVal = prompt('Please enter how long your password will be: min-8 max 120');
@@ -23,8 +23,6 @@ function generatePassword() {
       alert('Please choose between 8 and 120');
       return generatePassword();
     };
-  
-
   
   //check what the user wants to use
   let lowerCase = confirm('Would you like to incorporate lower case letters?');
@@ -53,35 +51,9 @@ function generatePassword() {
   if(numChar === true) {
       charSet += numCharVal;
       console.log(charSet);
-      
-    
-   
-  
-  /*if(charSet = lowerCase && upperCase && numChar && specChar) {
-    charSet = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_[]{};:<>/?')
-      if(charSet = lowerCase && upperCase && numChar) {
-        charSet = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
-        if(charSet = lowerCase && upperCase){
-          charSet = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-          if(charSet = lowerCase){
-            charSet = ('abcdefghijklmnopqrstuvwxyz')
-          }
-        }
-      }else if(charSet = lowerCase && upperCase && specChar){
-        charSet = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()-_[]{};:<>/?')
-      }else if(charSet = lowerCase && numChar && specChar) {
-        charSet = ('abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_[]{};:<>/?')
-      }else if(charSet = lowerCase && numChar){
-        charSet = ('abcdefghijklmnopqrstuvwxyz0123456789')
-      }else if(charSet = lowerCase && specChar){
-        charSet = ('abcdefghijklmnopqrstuvwxyz!@#$%^&*()-_[]{};:<>/?')
-      }
-  }*/
-
   }
   console.log(charSet);
 
-  //charSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
   retVal = "";
   for (var i = 0, n = charSet.length; i < passVal; i++) {
     retVal += charSet.charAt(Math.floor(Math.random() * n));
@@ -96,6 +68,5 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
